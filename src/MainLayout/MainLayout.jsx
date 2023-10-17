@@ -8,7 +8,7 @@ const MainLayout = () => {
     <div data-theme={isDark ? "night" : "light"} className="font-poppins">
       <div className="max-w-screen-xl mx-auto">
         <Navbar theme={[isDark, setDark]} />
-        <Home/>
+        <Home theme={[isDark, setDark]}/>
       </div>
     </div>
   );

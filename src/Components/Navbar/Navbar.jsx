@@ -3,6 +3,7 @@ import logoBlack from "../../assets/logo_black.png";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
+import { BiSolidLogInCircle } from "react-icons/bi";
 
 const Navbar = ({ theme }) => {
   const [isDark, setDark] = theme;
@@ -59,8 +60,8 @@ const Navbar = ({ theme }) => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end flex items-center gap-3">
-          <Link to={"/login"} className="btn">
-            Login
+          <Link to={"/login"} className="btn btn-sm">
+            <BiSolidLogInCircle className="text-xl"/> Login
           </Link>
           <button
             className="btn btn-circle text-2xl"

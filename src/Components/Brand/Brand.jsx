@@ -16,7 +16,7 @@ const Brand = ({ brand }) => {
         </div>
       </div> */}
       <div
-  className="block max-w-[18rem] rounded-lg bg-gray-700">
+  className="block max-w-[18rem] rounded-lg bg-gray-700 mx-auto">
   <div className="relative overflow-hidden bg-cover bg-no-repeat">
     <img
       className="rounded-t-lg h-20 w-full"

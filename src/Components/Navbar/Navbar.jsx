@@ -64,7 +64,7 @@ const Navbar = ({ theme }) => {
             <BiSolidLogInCircle className="text-xl"/> Login
           </Link>
           <button
-            className="btn btn-circle text-2xl"
+            className="btn btn-sm btn-circle text-2xl"
             onClick={() => setDark(!isDark)}
           >
             {isDark ? <MdOutlineLightMode /> : <MdDarkMode />}

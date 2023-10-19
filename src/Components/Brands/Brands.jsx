@@ -14,13 +14,15 @@ const Brands = () => {
   }, []);
   return (
     <div>
-      <div className="text-center mt-12">
+      <div className="text-center mt-16">
         <h1 className="text-3xl font-bold">We Provides</h1>
+        <hr className="border-2 border-sky-600 max-w-[120px] my-4 mx-auto rounded-md" />
         <p className="max-w-2xl mx-auto mt-5  text-gray-400">
           Empowering Your Journey: Elevating the Automotive Experience with
           Unmatched Quality, Innovation.
         </p>
       </div>
+  
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-5 lg:px-0 md:hidden">
         {brands.map((brand) => (
           <Brand key={brand.id} brand={brand} />

@@ -1,9 +1,12 @@
 import logoWhite from '../../assets/logo_white.png';
 import logoBlack from '../../assets/logo_black.png';
 import PropTypes from "prop-types";
+import { useContext } from 'react';
+import { ThemeContext } from '../../MainLayout/MainLayout';
 
 const Footer = ({theme}) => {
-    const [isDark] = theme;
+    // const [isDark] = theme;
+    const {isDark} = useContext(ThemeContext);
   return (
     <footer className="footer p-10 bg-base-200 text-base-content mt-10">
     <aside>

@@ -2,11 +2,11 @@ import Banner from "../../Components/Banner/Banner";
 import Brands from "../../Components/Brands/Brands";
 import ChooseUs from "../../Components/ChooseUs/ChooseUs";
 import Footer from "../../Components/Footer/Footer";
-import PropTypes from "prop-types";
+
 import Mission from "../../Components/Mission/Mission";
 import Questions from "../../Components/Questions/Questions";
 
-const Home = ({ theme }) => {
+const Home = () => {
   return (
     <div className="">
       <Banner />
@@ -16,12 +16,9 @@ const Home = ({ theme }) => {
         <Mission />
         <Questions />
       </div>
-      <Footer theme={theme} />
+      <Footer  />
     </div>
   );
-};
-Home.propTypes = {
-  theme: PropTypes.array.isRequired,
 };
 
 export default Home;

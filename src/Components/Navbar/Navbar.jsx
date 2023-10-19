@@ -1,12 +1,14 @@
 import logoWhite from "../../assets/logo_white.png";
 import logoBlack from "../../assets/logo_black.png";
 import { Link, NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
 import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
 import { BiSolidLogInCircle } from "react-icons/bi";
+import { useContext } from "react";
+import { ThemeContext } from "../../MainLayout/MainLayout";
 
-const Navbar = ({ theme }) => {
-  const [isDark, setDark] = theme;
+const Navbar = () => {
+  // const [isDark, setDark] = theme;
+  const {isDark, setDark}  = useContext(ThemeContext)
   const navLinks = (
     <>
       <li>
@@ -75,8 +77,5 @@ const Navbar = ({ theme }) => {
   );
 };
 
-Navbar.propTypes = {
-  theme: PropTypes.array.isRequired,
-};
 
 export default Navbar;

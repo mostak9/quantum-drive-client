@@ -1,16 +1,23 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
-import Home from "../Pages/Home/Home";
+
+import { Outlet } from "react-router-dom";
+
+export const ThemeContext = createContext(null);
 
 const MainLayout = () => {
   const [isDark, setDark] = useState(false);
+  const themeInfo = {isDark, setDark};
   return (
-    <div data-theme={isDark ? "night" : "light"} className="font-poppins">
+    <ThemeContext.Provider value={themeInfo}>
+      <div data-theme={isDark ? "night" : "light"} className="font-poppins">
       <div className="max-w-screen-xl mx-auto">
-        <Navbar theme={[isDark, setDark]} />
-        <Home theme={[isDark, setDark]}/>
+        <Navbar  />
+        <Outlet/>
       </div>
     </div>
+    </ThemeContext.Provider>
+    
   );
 };
 

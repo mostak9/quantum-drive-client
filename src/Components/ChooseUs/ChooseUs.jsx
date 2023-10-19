@@ -3,7 +3,7 @@ import money from "../../assets/icons/money.png";
 import quality from "../../assets/icons/quality.png";
 const ChooseUs = () => {
   return (
-    <div>
+    <div className="px-5">
       <div className="text-center mt-16 mb-6">
         <h1 className="text-3xl font-bold">Why Choose Us</h1>
         <hr className="border-2 border-sky-600 max-w-[120px] my-4 mx-auto rounded-md" />

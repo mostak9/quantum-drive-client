@@ -1,4 +1,7 @@
+import swal from "sweetalert";
+
 const AddProduct = () => {
+  
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -9,8 +12,24 @@ const AddProduct = () => {
         const rating = form.rating.value;
         const brand = form.brand.value;
         const type = form.type.value;
-        const productInfo = {name, image, price, rating, brand, type};
+        const details = form.details.value;
+        const productInfo = {name, image, price, rating, brand, type, details};
         console.log(productInfo);
+        fetch('http://localhost:5000/products', {
+          method: 'POST',
+          headers: {
+            'content-type' :  'application/json',
+          },
+          body: JSON.stringify(productInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if(data.insertedId) {
+            swal("Good job!", "Product added successfully!", "success");
+            form.reset();
+          }
+        })
     }
   return (
     <div className="min-h-screen mt-14 pb-14">
@@ -31,7 +50,7 @@ const AddProduct = () => {
             id="name"
             placeholder="Type product name here"
             className="text-sm input input-bordered w-full"
-            
+            required
           />
         </div>
         {/* image field */}
@@ -43,17 +62,18 @@ const AddProduct = () => {
             id="image"
             placeholder="Put your image link here"
             className="input input-bordered w-full text-sm"
+            required
           />
         </div>
         {/* brand, type, price */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* brand */}
           <div>
-            <select name="brand" className="select select-bordered w-full max-w-xs">
+            <select name="brand" className="select select-bordered w-full max-w-xs"   required>
               <option disabled selected>
                 Choose your brand
               </option>
-              <option>Marcedez Benz</option>
+              <option>Mercedes-Benz</option>
               <option>Bentley</option>
               <option>Honda</option>
               <option>BMW</option>
@@ -63,7 +83,7 @@ const AddProduct = () => {
           </div>
           {/* Type */}
           <div>
-            <select name="type" className="select select-bordered w-full max-w-xs">
+            <select name="type" className="select select-bordered w-full max-w-xs"  required>
               <option disabled selected>
                 Choose your vehicle type
               </option>
@@ -84,21 +104,26 @@ const AddProduct = () => {
               id="price"
               placeholder="Enter Product price here"
               className="input input-bordered w-full text-sm"
+              required
             />
           </div>
           {/* Rating */}
           <div className="flex items-center gap-2">
             <label htmlFor="rating">Rating (out of 5):</label>
             <input
-              type="number"
+            type="text"
               name="rating"
               id="rating"
-              max={5}
-              min={0}
+  
               placeholder="Rate your product"
               className="input input-bordered w-full text-sm"
+              required
             />
           </div>
+        </div>
+        <div className="flex flex-col gap-2">
+        <label  htmlFor="image" >Product Details</label>
+        <textarea  id="details" name="details"  className="textarea textarea-bordered h-40  w-full" placeholder="Write a short description about your product"  required></textarea>
         </div>
         {/* submit button */}
 

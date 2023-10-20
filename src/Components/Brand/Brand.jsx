@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Brand = ({ brand }) => {
   return (
-    <Link>
+    <Link to={`/products/${brand.brand_name}`}>
       {/* <div className="relative card  shadow-lg px-0 transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-500">
         <figure className="">
           <img src={brand.img} alt="car!" className="w-full rounded-lg h-40" />

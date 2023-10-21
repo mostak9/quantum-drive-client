@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Components/AuthProvder/AuthProvider";
@@ -10,6 +10,8 @@ const Login = () => {
   const [error, setError]  = useState('');
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  console.log(location);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -25,7 +27,7 @@ const Login = () => {
     .then(() =>  {
       swal('Success!', 'Logged in successfully', 'success');
       setError('');
-      navigate('/')
+      navigate(location.state || '/')
     })
     .catch(err =>  {
       console.log(err.message);

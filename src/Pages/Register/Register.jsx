@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/AuthProvder/AuthProvider";
+import swal from "sweetalert";
 
 
 const Register = () => {
+    const {createUser, userUpdate} = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,6 +17,15 @@ const Register = () => {
         const password = form.password.value;
         const user = {name, photo, email, password};
         console.log(user);
+        createUser(email, password)
+        .then(() => {
+            userUpdate(name, photo)
+            .then()
+            .catch()
+            swal('Success!', 'User created successfully!', 'success');
+            form.reset();
+            navigate('/');
+        })
     }
     return (
         <div>

@@ -1,5 +1,6 @@
 import logoWhite from "../../assets/logo_white.png";
 import logoBlack from "../../assets/logo_black.png";
+import avatar from '../../assets/avatar.jfif'
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
 import { BiSolidLogInCircle } from "react-icons/bi";
@@ -11,6 +12,7 @@ const Navbar = () => {
   // const [isDark, setDark] = theme;
   const {user, logOut} = useContext(AuthContext);
   const {isDark, setDark}  = useContext(ThemeContext);
+
   console.log(user);
 
   const handleLogOut = () => {
@@ -75,7 +77,7 @@ const Navbar = () => {
             
           {user ? <div>
             <div className="flex items-center gap-1 flex-col">
-              <img src={user.photoURL} className="w-14 h-14 rounded-full" alt="" />
+              <img src={user.photoURL || avatar} className="w-14 h-14 rounded-full" alt="" />
               <p className="text-xs">{user.displayName}</p>
             </div>
             <button onClick={handleLogOut} className="btn btn-sm">

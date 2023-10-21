@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Components/AuthProvder/AuthProvider";
+import swal from "sweetalert";
 
 const Login = () => {
+  const {userLogin} = useContext(AuthContext);
+  const [error, setError]  = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -9,6 +15,19 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    if(password.length <6) {
+      setError('⚠️password must be at least 6 characters');
+      return
+    }
+    userLogin(email, password)
+    .then(() =>  {
+      swal('Success!', 'Logged in successfully', 'success');
+      navigate('/')
+    })
+    .catch(err =>  {
+      console.log(err.message);
+      setError('⚠️Invalid email or password')
+    })
   }
   return (
     <div>
@@ -100,10 +119,10 @@ const Login = () => {
                           </div>
                         </div>
                         <p
-                          className="hidden text-xs text-red-600 mt-2"
+                          className="italic text-xs text-red-600 mt-2"
                           id="password-error"
                         >
-                          8+ characters required
+                          {error}
                         </p>
                       </div>
 

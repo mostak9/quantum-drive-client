@@ -5,10 +5,19 @@ import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
 import { BiSolidLogInCircle } from "react-icons/bi";
 import { useContext } from "react";
 import { ThemeContext } from "../../MainLayout/MainLayout";
+import { AuthContext } from "../AuthProvder/AuthProvider";
 
 const Navbar = () => {
   // const [isDark, setDark] = theme;
-  const {isDark, setDark}  = useContext(ThemeContext)
+  const {user, logOut} = useContext(AuthContext);
+  const {isDark, setDark}  = useContext(ThemeContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+    .then()
+    .catch(err => console.log(err))
+  }
   const navLinks = (
     <>
       <li>
@@ -53,7 +62,7 @@ const Navbar = () => {
           <Link to={"/"} className="btn btn-ghost normal-case text-xl">
             <img
               src={isDark ? logoWhite : logoBlack}
-              className="w-36"
+              className="w-24 md:w-36"
               alt="website-logo"
             />
           </Link>
@@ -62,9 +71,20 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end flex items-center gap-3">
-          <Link to={"/login"} className="btn btn-sm">
+          <div className="flex flex-col items-center gap-3">
+            
+          {user ? <div>
+            <div className="flex items-center gap-1 flex-col">
+              <img src={user.photoURL} className="w-14 h-14 rounded-full" alt="" />
+              <p className="text-xs">{user.displayName}</p>
+            </div>
+            <button onClick={handleLogOut} className="btn btn-sm">
+            <BiSolidLogInCircle className="text-xl"/> Logout
+          </button>
+          </div> : <Link to={"/login"} className="btn btn-sm">
             <BiSolidLogInCircle className="text-xl"/> Login
-          </Link>
+          </Link>}
+          </div>
           <button
             className="btn btn-sm btn-circle text-2xl"
             onClick={() => setDark(!isDark)}

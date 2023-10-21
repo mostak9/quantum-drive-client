@@ -3,13 +3,16 @@ import { AiFillGithub } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvder/AuthProvider";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
-    const {googleLogin, githubLogin} = useContext(AuthContext)
+    const {googleLogin, githubLogin} = useContext(AuthContext);
+    const navigate = useNavigate();
     const login = medium => {
         medium()
         .then(() => {
             swal('Success!', "You logged in successfully", 'success');
+            navigate('/');
         })
         .catch(err => console.error(err))
     }

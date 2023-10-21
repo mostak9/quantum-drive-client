@@ -1,10 +1,9 @@
 import logoWhite from '../../assets/logo_white.png';
 import logoBlack from '../../assets/logo_black.png';
-import PropTypes from "prop-types";
 import { useContext } from 'react';
 import { ThemeContext } from '../../MainLayout/MainLayout';
 
-const Footer = ({theme}) => {
+const Footer = () => {
     // const [isDark] = theme;
     const {isDark} = useContext(ThemeContext);
   return (
@@ -38,8 +37,6 @@ const Footer = ({theme}) => {
   </footer>
   );
 };
-Footer.propTypes = {
-    theme: PropTypes.array.isRequired,
-  };
+
 
 export default Footer;

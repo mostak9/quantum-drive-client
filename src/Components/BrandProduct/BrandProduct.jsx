@@ -37,7 +37,7 @@ const BrandProduct = ({ product }) => {
             <div className="mt-7 sm:mt-auto">
               <div className="flex flex-col items-center gap-4 mt-5">
                 <Link to={`../${_id}`} className="btn bg-sky-600 w-full">Details</Link>
-                <Link className="btn btn-outline border-sky-600 text-sky-600 w-full">Update</Link>
+                <Link to={`../../update/${_id}`} className="btn btn-outline border-sky-600 text-sky-600 w-full">Update</Link>
               </div>
             </div>
           </div>

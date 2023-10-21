@@ -39,14 +39,14 @@ const Register = () => {
         setError("");
         navigate("/");
       })
-      .catch((err) => {
+      .catch(() => {
         setError("user already exist");
       });
   };
   return (
     <div>
-      <html className="h-full">
-        <body className=" flex h-full items-center py-16">
+      <div className="h-full">
+        <div className=" flex h-full items-center py-16">
           <main className="w-full max-w-md mx-auto p-6">
             <div className="mt-7 border border-gray-200 rounded-xl shadow-sm dark:border-gray-700">
               <div className="p-4 sm:p-7">
@@ -188,8 +188,8 @@ const Register = () => {
               </div>
             </div>
           </main>
-        </body>
-      </html>
+        </div>
+      </div>
     </div>
   );
 };

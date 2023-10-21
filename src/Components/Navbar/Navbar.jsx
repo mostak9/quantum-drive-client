@@ -13,7 +13,6 @@ const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
   const {isDark, setDark}  = useContext(ThemeContext);
 
-  console.log(user);
 
   const handleLogOut = () => {
     logOut()

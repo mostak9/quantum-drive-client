@@ -6,38 +6,37 @@ import swal from "sweetalert";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
-  const {userLogin} = useContext(AuthContext);
-  const [error, setError]  = useState('');
+  const { userLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
-  console.log(location);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    if(password.length <6) {
-      setError('⚠️password must be at least 6 characters');
-      return
+    if (password.length < 6) {
+      setError("⚠️password must be at least 6 characters");
+      return;
     }
     userLogin(email, password)
-    .then(() =>  {
-      swal('Success!', 'Logged in successfully', 'success');
-      setError('');
-      navigate(location.state || '/')
-    })
-    .catch(err =>  {
-      console.log(err.message);
-      setError('⚠️Invalid email or password')
-    })
-  }
+      .then(() => {
+        swal("Success!", "Logged in successfully", "success");
+        setError("");
+        navigate(location.state || "/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError("⚠️Invalid email or password");
+      });
+  };
   return (
     <div>
-      <html className="h-full">
-        <body className=" flex h-full items-center py-16">
+      <div className="h-full">
+        <div className=" flex h-full items-center py-16">
           <main className="w-full max-w-md mx-auto p-6">
             <div className="mt-7  border  rounded-xl shadow-sm ">
               <div className="p-4 sm:p-7">
@@ -45,13 +44,17 @@ const Login = () => {
                   <h1 className="block text-2xl font-bold">Log in</h1>
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                     Don't have an account yet?
-                    <Link to={'/register'}  className="text-blue-600 decoration-2 hover:underline font-medium">Register here</Link>
-                   
+                    <Link
+                      to={"/register"}
+                      className="text-blue-600 decoration-2 hover:underline font-medium"
+                    >
+                      Register here
+                    </Link>
                   </p>
                 </div>
 
                 <div className="mt-5">
-                  <SocialLogin/>
+                  <SocialLogin />
 
                   <form onSubmit={handleSubmit}>
                     <div className="grid gap-y-4">
@@ -69,18 +72,6 @@ const Login = () => {
                             aria-describedby="email-error"
                             placeholder="Email"
                           />
-                          <div className="hidden absolute inset-y-0 right-0 flex items-center pointer-events-none pr-3">
-                            <svg
-                              className="h-5 w-5 text-red-500"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              viewBox="0 0 16 16"
-                              aria-hidden="true"
-                            >
-                              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                            </svg>
-                          </div>
                         </div>
                         <p
                           className="hidden text-xs text-red-600 mt-2"
@@ -110,7 +101,12 @@ const Login = () => {
                             aria-describedby="password-error"
                             placeholder="Password"
                           />
-                          <p className="absolute cursor-pointer text-xl right-2 top-1/3" onClick={()=> setShowPass(!showPass)}>{showPass ? <AiFillEyeInvisible/>: <AiFillEye/>}</p>
+                          <p
+                            className="absolute cursor-pointer text-xl right-2 top-1/3"
+                            onClick={() => setShowPass(!showPass)}
+                          >
+                            {showPass ? <AiFillEyeInvisible /> : <AiFillEye />}
+                          </p>
                         </div>
                         <p
                           className="italic text-xs text-red-600 mt-2"
@@ -132,8 +128,8 @@ const Login = () => {
               </div>
             </div>
           </main>
-        </body>
-      </html>
+        </div>
+      </div>
     </div>
   );
 };

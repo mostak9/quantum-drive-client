@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import {BsCurrencyDollar} from 'react-icons/bs';
+import { Link } from "react-router-dom";
 
 const BrandProduct = ({ product }) => {
-  const { name, image, price, rating, brand, type, details } = product;
+  const { name, image, price, rating, brand, type, details, _id } = product;
   return (
     <div>
       <div className=" border rounded-xl shadow-sm sm:flex dark:shadow-slate-700/[.7] space-y-6">
@@ -27,15 +29,15 @@ const BrandProduct = ({ product }) => {
                     <p><span className="font-bold">Type:</span> {type}</p>
                 </div>
                 <div className="flex justify-between items-center">
-                    <p><span className="font-bold">Price:</span> {price}</p>
+                    <p className="flex gap-1 items-center"><span className="font-bold ">Price:</span> <BsCurrencyDollar/>{price}</p>
                     <p><span className="font-bold">Rating:</span> {rating}</p>
                 </div>
                 
             </div>
             <div className="mt-7 sm:mt-auto">
               <div className="flex flex-col items-center gap-4 mt-5">
-                <button className="btn bg-sky-600 w-full">Details</button>
-                <button className="btn btn-outline border-sky-600 text-sky-600 w-full">Details</button>
+                <Link to={`../${_id}`} className="btn bg-sky-600 w-full">Details</Link>
+                <Link className="btn btn-outline border-sky-600 text-sky-600 w-full">Update</Link>
               </div>
             </div>
           </div>

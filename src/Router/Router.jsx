@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import MyCart from "../Pages/MyCart/MyCart";
 
 
 
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <UpdateProduct/>,
                 loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+            },
+            {
+                path: '/myCart',
+                element: <PrivateRoute><MyCart/></PrivateRoute>,
+                loader: () =>  fetch('http://localhost:5000/carts/myCart'),
             }
         ]
     }

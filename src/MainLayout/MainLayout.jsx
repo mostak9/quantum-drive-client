@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import Navbar from "../Components/Navbar/Navbar";
 
 import { Outlet } from "react-router-dom";
+import Footer from "../Components/Footer/Footer";
 
 export const ThemeContext = createContext(null);
 
@@ -14,6 +15,7 @@ const MainLayout = () => {
       <div className="max-w-screen-xl mx-auto">
         <Navbar  />
         <Outlet/>
+        <Footer/>
       </div>
     </div>
     </ThemeContext.Provider>

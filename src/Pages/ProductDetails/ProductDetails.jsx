@@ -1,8 +1,21 @@
 import { useLoaderData } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
+
+
 const ProductDetails = () => {
   const product = useLoaderData();
+  const handleCart = ()  => {
+    fetch('http://localhost:5000/cart', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }
   return (
     <div className="px-5 lg:px-0">
       <div className="mt-10">
@@ -19,7 +32,7 @@ const ProductDetails = () => {
             </div>
           </div>
           <div>
-            <button className="btn bg-sky-600">
+            <button onClick={handleCart} className="btn bg-sky-600">
               <AiOutlineShoppingCart className="text-xl" /> Add to cart
             </button>
           </div>

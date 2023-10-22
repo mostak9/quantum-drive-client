@@ -29,7 +29,7 @@ const UpdateProduct = () => {
             console.log(data);
             if(data.acknowledged) {
                 swal('Success!', "Product updated successfully!", 'success');
-                navigate(`../${product.brand}`);
+                navigate(`/`);
             }
         })
     }

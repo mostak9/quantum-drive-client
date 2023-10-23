@@ -25,11 +25,15 @@ const Register = () => {
     } else if (!/[A-Z]/.test(password)) {
       setError("⚠️Password must contain at least one Uppercase character");
       return;
-    } else if (!/^[a-zA-Z0-9!@#$%^\&*)(+=._-]*$/.test(password)) {
+    } else if (!/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/.test(password)) {
       setError(
         "⚠️Password must contain at least one special(@, #, &) character"
       );
       return;
+    }
+    else if(!/\d/.test(password)) {
+      setError('⚠️Password must contain al least one integer');
+      return
     }
     createUser(email, password)
       .then(() => {
@@ -116,7 +120,6 @@ const Register = () => {
                             required
                             aria-describedby="email-error"
                             placeholder="Profile picture link"
-                            r
                           />
                         </div>
                       </div>

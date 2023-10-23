@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import {BsCurrencyDollar} from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 
 const BrandProduct = ({ product }) => {
   const { name, image, price, rating, brand, type, details, _id } = product;
@@ -24,13 +27,13 @@ const BrandProduct = ({ product }) => {
               {details.length > 50 ? details.slice(0, 50) : details}....
             </p>
             <div className="mt-1 text-sm ">
-                <div className="flex justify-between items-center">
+                <div className=" justify-between items-center">
                     <p><span className="font-bold">Brand:</span> {brand}</p>
                     <p><span className="font-bold">Type:</span> {type}</p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className=" justify-between items-center">
                     <p className="flex gap-1 items-center"><span className="font-bold ">Price:</span> <BsCurrencyDollar/>{price}</p>
-                    <p><span className="font-bold">Rating:</span> {rating}</p>
+                    <p className="flex"><span className="font-bold">Rating:</span> <Rating style={{maxWidth: 100}} value={rating} readOnly/></p>
                 </div>
                 
             </div>

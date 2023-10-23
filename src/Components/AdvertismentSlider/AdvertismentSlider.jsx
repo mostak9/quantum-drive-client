@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import slider1 from '../../assets/slider_1.jpg'
 import slider2 from '../../assets/slider-2.jpg';
 import slider3 from '../../assets/slider-3.jpg';
@@ -21,7 +21,7 @@ const AdvertismentSlider = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
         <SwiperSlide className="h-full">

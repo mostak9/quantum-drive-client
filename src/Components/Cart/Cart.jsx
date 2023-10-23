@@ -18,7 +18,7 @@ const Cart = ({ cart, setCarts, carts }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/cart/${_id}`, {
+        fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

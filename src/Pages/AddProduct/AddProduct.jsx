@@ -15,7 +15,7 @@ const AddProduct = () => {
         const details = form.details.value;
         const productInfo = {name, image, price, rating, brand, type, details};
         console.log(productInfo);
-        fetch('http://localhost:5000/products', {
+        fetch('https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/products', {
           method: 'POST',
           headers: {
             'content-type' :  'application/json',

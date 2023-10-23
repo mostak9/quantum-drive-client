@@ -17,7 +17,7 @@ const UpdateProduct = () => {
         const type = form.type.value;
         const details = form.details.value;
         const productInfo = {name, image, price, rating, brand, type, details};
-        fetch(`http://localhost:5000/update/${product._id}`, {
+        fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/update/${product._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

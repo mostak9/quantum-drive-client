@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const [add, setAdd]  = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cart/${product._id}`)
+    fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/cart/${product._id}`)
       .then((res) => res.json())
       .then((data) => setInCart(data));
   }, [product._id])
@@ -21,7 +21,7 @@ const ProductDetails = () => {
       swal("Error!", "Product already exists in cart", "error");
       return;
     }
-    fetch("http://localhost:5000/cart", {
+    fetch("https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",

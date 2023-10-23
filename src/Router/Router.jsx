@@ -30,12 +30,12 @@ const router = createBrowserRouter([
             {
                 path: '/products/:id',
                 element: <PrivateRoute><BrandProducts/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({params}) => fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/products/${params.id}`)
             },
             {
                 path: '/:id',
                 element: <PrivateRoute><ProductDetails/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+                loader: ({params}) => fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/${params.id}`)
             },
             {
                 path: '/login',
@@ -48,12 +48,12 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <UpdateProduct/>,
-                loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+                loader: ({params}) => fetch(`https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/${params.id}`)
             },
             {
                 path: '/myCart',
                 element: <PrivateRoute><MyCart/></PrivateRoute>,
-                loader: () =>  fetch('http://localhost:5000/carts/myCart'),
+                loader: () =>  fetch('https://quantum-drive-server-assignment-10-kggz65yln.vercel.app/carts/myCart'),
             }
         ]
     }

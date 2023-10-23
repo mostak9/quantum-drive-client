@@ -48,7 +48,7 @@ const AdvertismentSlider = () => {
         </SwiperSlide>
         <SwiperSlide className="h-full">
             <div>
-                <div style={{backgroundImage: `url(${slider3})`}} className="bg-cover bg-center min-h-[70vh] text-white text-center">
+                <div style={{backgroundImage: `url(${slider3})`}} className="bg-cover bg-center bg-no-repeat min-h-[70vh] text-white text-center">
                     <div className="bg-black/60 w-full h-[70vh] flex items-center justify-center flex-col">
                     <h1 className="text-5xl font-bold">Service and Maintenance Packages</h1>
                     <p className="max-w-lg mx-auto mt-5">Service Excellence Guaranteed! Explore our range of service and maintenance packages to keep your vehicle in top condition.</p>

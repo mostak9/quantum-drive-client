@@ -1,9 +1,50 @@
 import PropTypes from "prop-types";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, setCarts, carts }) => {
   const { name, image, price, rating, brand, type, details, _id } = cart;
+  console.log(setCarts, carts);
+  const handleDelete = ()  => {
+
+
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+
+        fetch(`http://localhost:5000/cart/${_id}`, {
+        method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.deletedCount) {
+          swal('Success!', 'Product deleted form cart', 'success');
+          const remaining = carts.filter(cart => cart._id !== _id);
+          setCarts(remaining); 
+        }
+        
+    })
+      } else {
+        swal("Delete cancelled!");
+      }
+    });
+
+
+
+
+
+
+
+    
+  }
   return (
     <div>
       <div className="card card-compact  bg-base-100 shadow-xl">
@@ -29,7 +70,7 @@ const Cart = ({ cart }) => {
                 
             </div>
           <div className="card-actions ">
-            <button className="btn btn-error w-full">Buy Now</button>
+            <button onClick={handleDelete} className="btn btn-error w-full">Delete</button>
           </div>
         </div>
       </div>
@@ -39,6 +80,9 @@ const Cart = ({ cart }) => {
 
 Cart.propTypes = {
   cart: PropTypes.object.isRequired,
+  setCarts: PropTypes.func.isRequired,
+  carts: PropTypes.array.isRequired,
 };
+
 
 export default Cart;

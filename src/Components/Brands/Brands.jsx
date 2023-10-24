@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Brand from "../Brand/Brand";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { Navigation, Pagination } from "swiper/modules";
+import { A11y, Navigation, Pagination } from "swiper/modules";
+import SwiperNav from "../SwiperNav/SwiperNav";
 // import '../Brand/Brand.css';
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
+
   useEffect(() => {
     fetch("./brands.json")
       .then((res) => res.json())
@@ -33,7 +35,7 @@ const Brands = () => {
       height={600}
         slidesPerView={3}
         spaceBetween={30}
-        navigation = {true}
+        // navigation = {true}
 
         autoplay={{
           delay: 3000
@@ -42,15 +44,20 @@ const Brands = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, A11y]}
         className="mySwiper"
       >
+        <div className="my-4">
+          <SwiperNav/>
+        </div>
         {brands.map((brand) => (
           <SwiperSlide className="h-full" key={brand.id}>
             <Brand brand={brand} />
           </SwiperSlide>
         ))}
+        
       </Swiper>
+      
       </div>
     </div>
   );

@@ -15,8 +15,8 @@ const Brands = () => {
       .then((data) => setBrands(data));
   }, []);
   return (
-    <div>
-      <div className="text-center mt-16">
+    <div data-aos="fade-up">
+      <div className="text-center mt-16" data-aos="fade-left">
         <h1 className="text-3xl font-bold">We Provides</h1>
         <hr className="border-2 border-sky-600 max-w-[120px] my-4 mx-auto rounded-md" />
         <p className="max-w-2xl mx-auto mt-5  text-gray-400">

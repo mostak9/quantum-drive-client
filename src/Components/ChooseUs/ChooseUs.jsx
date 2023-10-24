@@ -3,8 +3,8 @@ import money from "../../assets/icons/money.png";
 import quality from "../../assets/icons/quality.png";
 const ChooseUs = () => {
   return (
-    <div className="px-5">
-      <div className="text-center mt-16 mb-6">
+    <div className="px-5" data-aos="fade-up">
+      <div className="text-center mt-16 mb-6" data-aos="fade-right">
         <h1 className="text-3xl font-bold">Why Choose Us</h1>
         <hr className="border-2 border-sky-600 max-w-[120px] my-4 mx-auto rounded-md" />
         <p className="max-w-2xl mx-auto mt-5  text-gray-400">
@@ -12,7 +12,7 @@ const ChooseUs = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5">
-        <div className="text-center">
+        <div className="text-center" data-aos="flip-left" data-aos-duration='1500' data-aos-delay="400">
           <img src={expert} className="mx-auto" alt="" />
           <h1 className="text-xl font-bold">Expertise and Experience</h1>
           <p className="text-sm text-gray-500">
@@ -20,14 +20,14 @@ const ChooseUs = () => {
             unparalleled expertise to the table
           </p>
         </div>
-        <div className="text-center">
+        <div className="text-center" data-aos="flip-right" data-aos-duration='1500' data-aos-delay="3400">
           <img src={money} className="mx-auto" alt="" />
           <h1 className="text-xl font-bold">Transparency and Integrity</h1>
           <p className="text-sm text-gray-500">
           Count on transparent, honest dealings backed by our commitment to your trust and satisfaction.
           </p>
         </div>
-        <div className="text-center">
+        <div className="text-center" data-aos="flip-up" data-aos-duration='1500' data-aos-delay="400">
           <img src={quality} className="mx-auto" alt="" />
           <h1 className="text-xl font-bold">Quality Selection</h1>
           <p className="text-sm text-gray-500">

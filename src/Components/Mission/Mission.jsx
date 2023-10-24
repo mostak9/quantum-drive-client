@@ -1,6 +1,6 @@
 const Mission = () => {
   return (
-    <div className="px-5">
+    <div className="px-5" data-aos="fade-right" data-aos-duration="1500">
       <div className=" mt-16">
         <h1 className="text-3xl font-bold">Our missions</h1>
         <hr className="border-2 border-sky-600 max-w-[120px] my-4  rounded-md" />

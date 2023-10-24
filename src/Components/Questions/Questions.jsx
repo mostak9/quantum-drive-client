@@ -1,7 +1,7 @@
 const Questions = () => {
   return (
-    <div>
-      <div className=" mt-16 px-5">
+    <div data-aos="fade-left " data-aos-duration="1500">
+      <div className=" mt-16 px-5" >
         <h1 className="text-3xl font-bold">Popular Questions</h1>
         <hr className="border-2 border-sky-600 max-w-[120px] my-4  rounded-md" />
       </div>
